@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <title>列表拖拽</title>
+    <style>
+        .draggable {
+            min-height: 30px;
+        }
+        .draggable li {
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            border: 1px solid #dddddd;
+            margin-top: 5px;
+        }
+        .ghost-class {
+            background: #42b983 !important;
+        }
+        .el-tag {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-tag> 当两个列表相互拖拽时group属性值必须相同 </el-tag>
+             <el-row>
+                <el-col :span="11">
+                    <draggable element="ul" v-model="list.to" class="draggable" :options="{group:'title',ghostClass:'ghost-class'}" @end="onToDragEnd">
+                        <li v-for="item in list.to" :key="item.id">{{item.id +":"+item.text}}</li>
+                    </draggable>
+                    <p>{{toIds}}</p>
+                 </el-col>
+                 <el-col :span="11" :offset="2">
+                    <draggable element="ul" v-model="list.from" class="draggable" :options="{group:'title',ghostClass:'ghost-class'}" @end="onFromDragEnd">
+                        <li v-for="item in list.from" :key="item.id">{{item.id +":"+item.text}}</li>
+                    </draggable>
+                    <p>{{fromIds}}</p>
+                 </el-col>
+             </el-row>
+        </template>
+    </div>
+    <script src="../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <title>Page3</title>
+    <style>
+        .el-date-editor.el-input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-table
+                :data="tableData"
+                border
+                row-key="id"
+                style="width: 100%">
+                <el-table-column
+                  prop="name"
+                  label="姓名"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  label="出生日期"
+                  width="180">
+                  <template slot-scope="scope">
+                        <el-date-picker
+                            v-if="editableRowIds.indexOf(scope.row.id) != -1"
+                            v-model="scope.row.birth"
+                            type="date"
+                            size="small"
+                            value-format="yyyy-MM-dd"
+                            placeholder="选择出生日期">
+                        </el-date-picker>
+                        <span v-else>{{scope.row.birth}}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column
+                  label="介绍">
+                  <template slot-scope="scope">
+                        <el-input 
+                            v-if="editableRowIds.indexOf(scope.row.id) != -1"
+                            size="small"
+                            type="text" 
+                            v-model="scope.row.desc">
+                        </el-input>
+                        <span v-else>{{scope.row.desc}}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column
+                  prop="address"
+                  label="地址">
+                </el-table-column>
+                <el-table-column
+                  label="编辑"
+                  align="center"
+                  width="100">
+                  <template slot-scope="scope">
+                        <el-button 
+                            v-if="editableRowIds.indexOf(scope.row.id) != -1"
+                            icon="el-icon-check" 
+                            type="success" 
+                            size="small" 
+                            @click="handleEditOk(scope.row.id)">OK</el-button>
+                        <el-button 
+                        v-else 
+                        type="primary" icon="el-icon-edit" size="small" @click="editableRowIds.push(scope.row.id)">编辑</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </template>
+    </div>
+    <script src="../../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <title>表单弹框</title>
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-button @click="dialogVisible = true;">添加用户</el-button>
+            <el-button @click="initForm">初始化表单数据</el-button>
+            <el-dialog
+                title="添加"
+                :visible.sync="dialogVisible"
+                width="600px"
+                :before-close="handleClose">
+                <el-form ref="dialogForm" :model="form" label-width="80px">
+                    <el-form-item label="姓名">
+                        <el-input v-model="form.name"></el-input>
+                    </el-form-item>
+                    <el-form-item label="性别">
+                        <el-select v-model="form.gender" placeholder="性别">
+                        <el-option label="男" value="man"></el-option>
+                        <el-option label="女" value="woman"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="出生日期">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="form.birth" style="width: 100%;"></el-date-picker>
+                    </el-form-item>
+                    <el-form-item label="特长">
+                        <el-checkbox-group v-model="form.speciality">
+                            <el-checkbox :label="1" name="speciality">琴</el-checkbox>
+                            <el-checkbox :label="2" name="speciality">棋</el-checkbox>
+                            <el-checkbox :label="3" name="speciality">书</el-checkbox>
+                            <el-checkbox :label="4" name="speciality">画</el-checkbox>
+                        </el-checkbox-group>
+                    </el-form-item>
+                    <el-form-item label="婚配">
+                        <el-radio-group v-model="form.marry">
+                            <el-radio :label="1">已婚</el-radio>
+                            <el-radio :label="0">未婚</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    <el-form-item label="介绍">
+                        <el-input type="textarea" v-model="form.desc"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onAdd">添加</el-button>
+                        <el-button @click="onCancel">取消</el-button>
+                        <el-button @click="reset">重置</el-button>
+                    </el-form-item>
+                </el-form>
+            </el-dialog>
+        </template>
+    </div>
+    <script src="../../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

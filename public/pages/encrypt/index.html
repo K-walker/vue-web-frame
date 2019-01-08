@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <title>Encrypt</title>
+</head>
+<body>
+    <div id="app"> 
+        <div class="mt-20">
+            <h4>AES密钥:{{aeskey}}</h4>
+            <h4>原文:{{message}}</h4>
+            <h4>密文:{{encryptStr}}</h4>
+            <h4>解密结果:{{decryptStr}}</h4>
+        </div>
+        <template>
+        <div class="mt-20">
+                <h2>HASH</h2>
+                <el-button round type="primary" @click="handleMD5()"> MD5加密 </el-button>
+                <el-button round type="primary" @click="handleSHA512()"> SHA512加密 </el-button>
+                <el-button round type="primary" @click="handleSHA256()"> SHA256加密 </el-button>
+            </div>
+            <div class="mt-20">
+                <h2>对称加解密</h2>
+                <el-button round type="primary" @click="handleAESEncrypt()"> AES加密 </el-button>
+                <el-button round type="primary" @click="handleAESDecrypt()"> AES解密 </el-button>
+                <el-button round type="primary" @click="handleDESEncrypt()"> DES加密 </el-button>
+                <el-button round type="primary" @click="handleDESDecrypt()"> DES解密 </el-button>
+            </div>
+            <div class="mt-20">
+                <h2>RSA</h2>
+                <el-button round type="primary" @click="handleRSAEncrypt()"> RSA加密 </el-button>
+                <el-button round type="primary" @click="handleRSADecrypt()"> RSA解密 </el-button>
+            </div>
+            <div class="mt-20">
+                <h2>数据编码</h2>
+                
+                <el-button round type="primary" @click="handleStrToBase64()"> Base64 转码 </el-button>
+                <el-button round type="primary" @click="handleBase64ToStr()"> Base64 解码 </el-button>
+                
+                <el-button round type="primary" @click="handleStrToHex()"> Hex 转码 </el-button>
+                <el-button round type="primary" @click="handleHexToStr()"> Hex 解码 </el-button>
+            </div>
+        </template>
+    </div>
+    <script src="../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

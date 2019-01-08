@@ -1,0 +1,163 @@
+html , body {margin: 0px;height: 100%;overflow: hidden;}
+#app , .el-container {
+    height: 100%;
+}
+.el-header {
+    background-color: #306ac6;
+}
+.logo {
+    width: 200px;
+    float: left;
+    height: 50px;
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+}
+.logo span {
+    display: block;
+    line-height: 50px;
+    opacity:1;
+    transition: opacity .3s .1s;
+    -webkit-transition: opacity .3s .1s;
+    -o-transition: opacity .3s  .1s;
+    -moz-transition: opacity .3s  .1s;
+}
+.logo i {
+    right: 0px;
+    position: absolute;
+    top: 0px;
+    line-height: 50px;
+    width: 30px;
+    transition: width .3s .1s;
+    -webkit-transition: width .3s .1s;
+    -o-transition: width .3s  .1s;
+    -moz-transition: width .3s  .1s;
+    cursor: pointer;
+}
+.el-aside.collapse .logo span {
+    opacity: 0;
+}
+.el-aside.collapse .logo i {
+    width: 100%;
+}
+.el-menu-vertical-left:not(.el-menu--collapse) {
+    width: 200px;
+}
+.el-menu--collapse>div>.el-submenu>.el-submenu__title span,
+.el-menu--collapse>div>.el-submenu>.el-submenu__title .el-submenu__icon-arrow {
+    display: none;
+}
+
+.el-submenu__title:hover i:first-child ,
+.el-menu-item:hover i {
+    -webkit-animation:rotate360 .5s forwards ;
+    -moz-animation:rotate360 .5s forwards ;
+    -o-animation:rotate360 .5s forwards ;
+    animation:rotate360 .5s forwards ;
+}
+.el-aside.collapse {
+    width: 64px !important;
+}
+.el-aside {
+    width: 200px !important;
+    transition: width .3s ease-in-out;
+    -webkit-transition: width .3s ease-in-out;
+    overflow: initial;
+    background-color: #2e323d;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+}
+.el-main {
+    height: 100%;
+    padding:0;
+}
+.el-tabs {
+    height: 100%;
+}
+.el-tabs__header {
+    margin: 0px;
+}
+.el-tabs__content {
+    height: calc(100% - 41px);
+}
+.el-tab-pane {
+    height: 100%;
+    padding:10px;
+}
+.el-tabs--card>.el-tabs__header .el-tabs__item {
+    border-top:4px solid #ffffff;
+}
+.el-tabs--card>.el-tabs__header .el-tabs__item.is-active.is-closable {
+    border-top-color: rgb(255, 208, 75);
+}
+.el-tabs--card>.el-tabs__header .el-tabs__nav {
+    border-radius: 0px;
+    border-top: none;
+}
+
+
+.ch-expand-arrow {
+    position: absolute;
+    z-index: 9999;
+    left: 200px;
+    top: calc(50% - 41px);
+    height: 50px;
+    border: 16px solid #2e323d;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transition: left .3s ease-in-out;
+    -webkit-transition: left .3s ease-in-out;
+    display: none;
+}
+.el-aside:hover .ch-expand-arrow {
+    display: block;
+}
+.el-aside.collapse .ch-expand-arrow {
+    left: 64px;
+}
+.ch-expand-arrow i {
+    color: #ffffff;
+    line-height: 50px;
+    position: relative;
+    left: -16px;
+    font-size: 14px;
+}
+.ch-expand-arrow i:hover {
+    color: rgb(255, 208, 75);
+    cursor: pointer;
+    font-size: 16px;
+}
+.el-header  {
+    padding: 0 20px 0 0 ;
+}
+.el-header .toolbar {
+    float: right;
+    height: 100%;
+}
+
+.el-header .toolbar .el-autocomplete {
+    float: right;
+    top: 8px;
+    margin-right: 20px;
+}
+.el-header .toolbar .el-autocomplete .el-input__inner {
+    height: 34px;
+    border-radius: 0px;
+}
+.el-header .toolbar .el-autocomplete .el-input__icon {
+    line-height: 34px;
+}
+.el-header .toolbar  .el-dropdown {
+    color: #ffffff;
+    top: 16px;
+    float: right;
+    cursor: pointer;
+}
+.el-header .toolbar  .el-color-picker--small {
+    top: 9px;
+    float: right;
+    margin-right: 20px;
+}

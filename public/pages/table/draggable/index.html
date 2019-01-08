@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <title>Page3</title>
+    <style>
+        .ghost-class {
+            background: #42b983 !important;
+        }
+        .fallback-class {
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <template>
+            <el-table
+                :data="tableData"
+                border
+                v-loading="loading"
+                row-key="id"
+                style="width:100%">
+                <el-table-column
+                  prop="id"
+                  label="ID"
+                  width="60">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  label="姓名"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="birth"
+                  label="生日"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="desc"
+                  label="介绍">
+                </el-table-column>
+                <el-table-column
+                  prop="address"
+                  label="地址">
+                </el-table-column>
+            </el-table>
+        </template>
+    </div>
+    <script src="../../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

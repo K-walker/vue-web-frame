@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <title>首页</title>
+</head>
+<body> 
+    <div id="app">
+        <template>
+            <div class="mt-20">
+                <h2>权限控制</h2>
+                
+                <el-button round type="primary"> {{message}} </el-button>
+               
+                <permission action="QUERY">
+                    <el-button round type="primary" icon="el-icon-edit" @click="handleGet()"> GET! </el-button>
+                </permission>
+
+                <permission action="UPDATE">
+                    <el-button round type="success" icon="el-icon-share" @click="handlePost()">POST!</el-button>
+                </permission>
+
+                <permission action="DELETE">
+                    <el-button round type="warning" @click="handleAll()">并发请求!</el-button>
+                </permission>
+                
+                <el-button round type="warning" @click="handlePut()">PUT请求</el-button>
+            </div>
+        </template>
+    </div>
+    <script src="../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

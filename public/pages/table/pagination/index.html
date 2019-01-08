@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+    <title>Table</title>
+    <style>
+        .pagination-wrapper {
+            width: 600px;
+            padding: 20px 0px;
+            margin: 0 auto;
+        }
+        ul.topbar {
+            margin: 0;
+            list-style: none;
+            padding: 20px 0;
+        }
+        ul.topbar li {
+            width: 140px;
+            display: inline-block;
+        }
+        ul.topbar li:last-child {
+            width: auto;
+        }
+        .ml-20 {margin-left: 20px;}
+    </style>
+</head>
+<body>
+    <div id="app">
+       <template>
+            <ul class="topbar">
+               <li>
+                    <el-input v-model="searchName" size="small" clearable placeholder="请输入姓名"></el-input>
+               </li>    
+               <li>
+                <el-select v-model="searchGender" size="small" clearable placeholder="请选择性别">
+                    <el-option label="男" value="0"></el-option>
+                    <el-option label="女" value="1"></el-option>
+                </el-select>
+               </li> 
+               <li class="ml-20">
+                   <el-button type="primary" size="small" @click="handleLocalSearch">查询</el-button>
+                   <el-button type="primary" size="small" @click="handleDel" :disabled="selections.length == 0">删除</el-button>
+                   <el-button type="primary" size="small" @click="handleClearSelection" :disabled="selections.length == 0">取消选择</el-button>
+               </li> 
+            </ul>
+            <el-table
+            ref="tb"
+            :data="tableData"
+            border
+            max-height="500"
+            style="width: 100%"
+            row-key="id"
+            @selection-change="handleSelectionChange">
+            <el-table-column type="selection" :reserve-selection="true" width="55" align="center"></el-table-column>
+            <el-table-column type="index" width="55" align="center"></el-table-column>
+            <el-table-column prop="id" label="ID" width="55" align="center"></el-table-column>
+            <el-table-column prop="name" label="姓名" width="180" align="center"></el-table-column>
+            <el-table-column prop="age" label="年龄" width="60" align="center"></el-table-column>
+            <el-table-column prop="gender" label="性别" width="60" align="center">
+                <template slot-scope="scope">
+                    {{scope.row.gender == 0 ? "男":"女"}}
+                </template>
+            </el-table-column>
+            <el-table-column prop="desc" label="介绍" align="center"></el-table-column>
+            <el-table-column prop="address" label="地址" align="center"></el-table-column>
+          </el-table>
+          <div class="pagination-wrapper">
+             <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="pageSizes"
+                :page-size="pageSize"
+                layout="total , sizes , prev , pager, next , jumper"
+                :total="rawData.length">
+              </el-pagination>
+          </div>
+       </template>
+    </div>
+    <script src="../../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" style="font-size:75%;">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../../css/common.css">
+</head>
+<body style="font-size:36px">
+	<div id="app">
+		<template>
+			<el-table
+				:data="tbData"
+				style="width:100%;">
+				<el-table-column align="center" label="姓名" prop="name"></el-table-column>
+				<el-table-column align="center" v-for="header in tbHeader" :key="header.id" :label="header.title">
+					<el-table-column align="center" v-for="(sub , index) in header.children" :key="sub.id" :label="sub.title">
+						<el-table-column align="center" label="分数">
+							<template scope="scope">
+								<span>{{scope.row.score[header.prop][index].score}}</span>
+							</template>
+						</el-table-column>
+						<el-table-column align="center" label="排名">
+							<template scope="scope">
+								<span>{{scope.row.score[header.prop][index].ranking}}</span>
+							</template>
+						</el-table-column>
+					</el-table-column>
+				</el-table-column>
+				<el-table-column align="center" label="电话" prop="tel"></el-table-column>
+			</el-table>
+		</template>	
+	</div>
+	<script src="../../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>

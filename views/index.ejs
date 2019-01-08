@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/frame.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div id="app"> 
+        <template>
+            <el-container>
+                <el-header height="50px">
+                    <div class="logo">
+                        <span>前端框架公共模板</span>
+                    </div>
+                    <div class="toolbar">
+                        <el-dropdown @command="onDropdownItemClick">
+                            <span class="el-dropdown-link">
+                                <el-badge :value="12" class="item">
+                                    <i class="el-icon-more-outline el-icon--left"></i>
+                                </el-badge>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item command="message">
+                                    <el-badge :value="12" class="item">
+                                        <span>系统消息</span> 
+                                    </el-badge>
+                                </el-dropdown-item>
+                                <el-dropdown-item :command="language">切换语言</el-dropdown-item>
+                                <el-dropdown-item command="setting">设置</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                        <el-color-picker 
+                            v-model="themeColor" size="small">
+                        </el-color-picker>
+                        <el-autocomplete
+                            v-model="searchWords"
+                            suffix-icon="el-icon-search"
+                            :fetch-suggestions="querySearch"
+                            placeholder="全局搜索"
+                            :trigger-on-focus="false"
+                            @select="handleSelect">
+                        </el-autocomplete>
+                    </div>
+                </el-header>
+                <el-container>
+                    <el-aside :class="isCollapse ? 'collapse':''" v-bind:style="{backgroundColor:themeColor}">
+                        <el-menu
+                            :default-active="activeMenuId"
+                            :background-color="themeColor"
+                            text-color="#fff"
+                            :collapse="isCollapse"
+                            class="el-menu-vertical-left"
+                            active-text-color="#ffd04b">
+                                <ch-vertical-menu-item :data="menus" @item-click="onCHMenuClick"></ch-vertical-menu-item>
+                        </el-menu>
+    
+                        <div class="ch-expand-arrow" v-bind:style="{borderLeftColor:themeColor}">
+                            <i :class="isCollapse?'el-icon-d-arrow-right':'el-icon-d-arrow-left'" @click="handleCollapseMenu"></i>
+                        </div>
+                    </el-aside>
+                    <el-main>
+                        <el-tabs 
+                            type="card" 
+                            closable
+                            v-model="activeTabId"
+                            @tab-click="clickTab"
+                            @tab-remove="removeTab">
+                            <el-tab-pane 
+                                v-for="tab in tabs"
+                                :key="tab.id"
+                                :label="tab.name"
+                                :name="tab.id">
+                                <iframe :src="tab.url" :name="tab.id" frameborder="0"></iframe>
+                            </el-tab-pane>
+                        </el-tabs>  
+                    </el-main>
+                </el-container>
+            </el-container>
+    </template>
+    </div>
+    <script src="../../js/libs/require.js" data-main="../../pages/index.js"></script>
+</body>
+</html>

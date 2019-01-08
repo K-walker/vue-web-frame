@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/elm-2.1.0.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/ch-menu.css">
+    <title>菜单导航</title>
+</head>
+<body>
+    <div id="app">
+        <template>
+            <p>水平导航栏</p>
+            <div> 
+                <p><strong>background-color:</strong> 菜单背景色</p>
+                <p><strong>active-text-color:</strong>当前激活菜单文字颜色</p>
+            </div>
+            <ch-horizonal-menu 
+                :data="menus"
+                background-color="#1B75D5"
+                @item-click="onHorizonalMenuClick">
+            </ch-horizonal-menu>
+            <p>垂直导航栏 (垂直导航菜单配置参考Element官网配置)</p>
+            <el-menu
+                background-color="#2e323d"
+                text-color="#fff">
+                <ch-vertical-menu-item 
+                    :data="menus" 
+                    @item-click="onVerticalMenuClick">
+                </ch-vertical-menu-item>
+            </el-menu>
+        </template>
+    </div>
+    <script src="../../js/libs/require.js" data-main="index.js"></script>
+</body>
+</html>
