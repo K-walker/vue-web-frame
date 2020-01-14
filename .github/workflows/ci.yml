@@ -10,8 +10,10 @@ jobs:
     
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+    - uses: actions/checkout@v1
     - name: Install and Build
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        BUILD_SCRIPT: npm install && npm start
+      run: |
+        npm i
+        npm start
       
