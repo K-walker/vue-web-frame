@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "supervisor ./bin/www"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -15,7 +15,6 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "supervisor":"^0.12.0",
     "mockjs": "^1.0.1-beta3"
   },
   "homepage": "https://K-walker.github.io/vue-web-frame"
