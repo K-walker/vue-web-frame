@@ -1,5 +1,5 @@
 name: Start Vwf Project
-
+# db5e57fe04a6a8f18579f7ed189699024685ae66
 on: 
   push:
     branches:
@@ -12,6 +12,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Install and Build
+        env:
+          ACTIONS_ACCESS_TOKEN: ${{ secrets.ACTIONS_ACCESS_TOKEN }}
         run: |
           npm i
           npm start
