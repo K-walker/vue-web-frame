@@ -17,5 +17,6 @@
   "devDependencies": {
     "supervisor":"^0.12.0",
     "mockjs": "^1.0.1-beta3"
-  }
+  },
+  "homepage": "https://K-walker.github.io/vue-web-frame"
 }
