@@ -1,0 +1,14 @@
+name: vue web frame 
+
+on: [push]
+
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install and Build
+      run: |
+        npm i
+        npm start
+      
