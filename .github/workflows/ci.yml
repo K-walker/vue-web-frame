@@ -1,6 +1,9 @@
-name: vue web frame 
+name: vue-web-frame 
 
-on: [push]
+on: 
+  push:
+    branches:
+      - master
 
 jobs:
   build:
