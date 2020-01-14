@@ -12,7 +12,6 @@ jobs:
     steps:
     - name: Install and Build
       uses: JamesIves/github-pages-deploy-action@master
-      run: |
-        npm i
-        npm start
+      env:
+        BUILD_SCRIPT: npm install && npm start
       
