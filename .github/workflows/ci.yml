@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install and Build
+      uses: JamesIves/github-pages-deploy-action@master
       run: |
         npm i
         npm start

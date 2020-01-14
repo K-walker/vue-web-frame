@@ -1,6 +1,6 @@
 {
-  "name": "webframe2.0",
-  "version": "0.0.0",
+  "name": "vue-web-frame",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "supervisor ./bin/www"
